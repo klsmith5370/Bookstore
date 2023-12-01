@@ -41,7 +41,30 @@ app.post('/books', async (req, res) => {
     }
 });
 
+// route for getting all books from database
+app.get("/books", async(req, res) => {
+    try {
+        const books = await Book.find({});
+        res.status(200).send(books);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ message: error.message });
+    }
+});
 
+// Alternate route (if you want to include other keys):
+// app.get("/books", async(req, res) => {
+//     try {
+//         const books = await Book.find({});
+//         res.status(200).send({
+//             count: books.length,
+//             data: books,
+//         });
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).send({ message: error.message });
+//     }
+// });
 
 mongoose
 .connect(mongoDBURL)
