@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
     return(res.status(234).send("Welcome to MERN Stack Bookstore!!"));
 });
 
-// Route for saving/creating a new book
 app.post('/books', async (req, res) => {
     try {
         if (
@@ -65,6 +64,19 @@ app.get("/books", async(req, res) => {
 //         res.status(500).send({ message: error.message });
 //     }
 // });
+
+// route for getting single book by id
+app.get("/books/:id", async(req, res) => {
+    try {
+        const { id } = req.params;
+        const book = await Book.findById(id)
+        res.status(200).send(book)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+
 
 mongoose
 .connect(mongoDBURL)
