@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
     return(res.status(234).send("Welcome to MERN Stack Bookstore!!"));
 });
 
+// route for creating a book
 app.post('/books', async (req, res) => {
     try {
         if (
@@ -103,7 +104,25 @@ app.put("/books/:id", async(req, res) => {
         console.log(error);
         res.status(500).send({ error: error.message });
     }
-})
+});
+
+// route for deleting a book
+app.delete("/books/:id", async(req, res) => {
+    try {
+        const { id } = req.params;
+        const result = await Book.findByIdAndDelete(id);
+        
+        if (!result) {
+            return res.status(404).send({ message: "Book not found" });
+        }
+
+        return res.status(200).send({ message: "Book deleted successfully" });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ error: error.message });
+    }
+});
 
 
 mongoose
