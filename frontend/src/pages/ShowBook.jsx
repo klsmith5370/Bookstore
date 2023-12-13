@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 
 const ShowBook = () => {
     return (
         <div>ShowBook</div>
     )
-}
+};
 
-export default ShowBook
+export default ShowBook;
