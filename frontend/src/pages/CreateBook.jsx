@@ -8,6 +8,7 @@ const CreateBook = () => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [publishYear, setPublishYear] = useState("");
+    const [bookImage, setBookImage] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const CreateBook = () => {
             title,
             author,
             publishYear,
+            bookImage,
         };
         setLoading(true);
         axios
@@ -68,6 +70,16 @@ const CreateBook = () => {
                         className="border-2 border-gray-500 px-4 py-2 w-full"
                     />
                 </div>
+
+                {/* <div className="p-4">
+                    <label className="text-xl mr-4 text-gray-500">Book Cover</label>
+                    <input 
+                        type="text"
+                        value={bookImage}
+                        onChange={((e) => setBookImage(e.target.value))}
+                        className="border-2 border-gray-500 px-4 py-2 w-full"
+                    />
+                </div> */}
 
                 <button className="p-2 bg-sky-300 m-8" onClick={handleSaveBook}>
                     Save to Shelf

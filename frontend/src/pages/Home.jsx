@@ -42,6 +42,7 @@ const Home = () => {
                             <th className ="border border-slate-600 rounded-md">Title</th>
                             <th className ="border border-slate-600 rounded-md max-md:hidden">Author</th>
                             <th className ="border border-slate-600 rounded-md">Publish Year</th>
+                            {/* <th className ="border border-slate-600 rounded-md">Book Cover</th> */}
                             <th className ="border border-slate-600 rounded-md">Operations</th>
                         </tr>
                     </thead>
@@ -52,15 +53,23 @@ const Home = () => {
                                 <td className="border border-slate-700 rounded-md text-center">
                                     {index + 1}
                                 </td>
+
                                 <td className="border border-slate-700 rounded-md text-center">
                                     {book.title}
                                 </td>
+
                                 <td className="border border-slate-700 rounded-md text-center max-md:hidden">
                                     {book.author}
                                 </td>
+
                                 <td className="border border-slate-700 rounded-md text-center max-md:hidden">
                                     {book.publishYear}
                                 </td>
+
+                                {/* <td className="border border-slate-700 rounded-md max-md:hidden">
+                                    {book.bookImage}
+                                </td> */}
+
                                 <td className="border border-slate-700 rounded-md text-center max-md:hidden">
                                     <div className="flex justify-center gap-x-4">
                                         <Link to={`/books/details/${book._id}`}>

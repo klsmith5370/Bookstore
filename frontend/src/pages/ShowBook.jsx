@@ -51,6 +51,11 @@ const ShowBook = () => {
                         <span>{book.publishYear}</span>
                     </div>
 
+                    <div className="my-4">
+                        <img className="border-2 border-sky-400 rounded-xl w-fit">Publish Year /</img>
+                        <span>{book.bookImage}</span>
+                    </div>
+
                     {/* When book was created/added */}
                     <div className="my-4">
                         <span className="text-xl mr-4 text-gray-500">Book Added</span>

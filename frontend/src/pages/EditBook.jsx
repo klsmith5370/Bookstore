@@ -20,6 +20,7 @@ const EditBook = () => {
                 setTitle(res.data.title)
                 setAuthor(res.data.author)
                 setPublishYear(res.data.publishYear)
+                setLoading(false)
             })
             .catch((error) => {
                 setLoading(false)
@@ -36,7 +37,7 @@ const EditBook = () => {
         };
         setLoading(true);
         axios
-            .put(`http://localhost:5555/books/${id}`)
+            .put(`http://localhost:5555/books/${id}`, data)
             .then(() => {
                 setLoading(false);
                 navigate("/");
